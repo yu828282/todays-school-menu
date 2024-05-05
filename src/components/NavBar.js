@@ -70,7 +70,6 @@ function NavBar(){
             handlegGetToken(code)// 카카오에서 코드를 받은 후 해당 코드를 카카오에게 포스트로 날리기
         }
         return () => { //navigate는 useEffect 함수 내부에서 사용해야 잘 작동한다
-            console.log("로그인여부 확인할께요?")
             changeLocation();
         }
     }, [userData, pathname]) 
@@ -99,7 +98,9 @@ function NavBar(){
 
     const handlegGetToken = async (code) => {// 프론트에서 바로 카카오에게..
         const { access_token } = await getToken(code);
-        localStorage.setItem('access_token', access_token);
+        if (access_token !== '{msg: "this access token does not exist", code: -401}'){
+            localStorage.setItem('access_token', access_token);
+        }
 
         const response = await fetch("https://kapi.kakao.com/v2/user/me",{
             method : "GET",
