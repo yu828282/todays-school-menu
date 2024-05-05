@@ -112,6 +112,10 @@ function NavBar(){
         setUserData(result)
         //window.location.reload();
     };
+    const deleteSubscribe = () => {     
+      alert("다음페이지로 이동.");
+      navigate("/menu-login"); 
+    };
 
     return(  
     <nav id="nav1">
@@ -129,6 +133,7 @@ function NavBar(){
             </li> 
             }
         </ul>
+        <span onClick={()=>deleteSubscribe()}>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</span>
     </nav>
     )
 };
