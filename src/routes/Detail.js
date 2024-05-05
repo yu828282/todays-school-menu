@@ -22,7 +22,6 @@ function Detail(){
       if (!kakao.isInitialized()) {
         kakao.init(process.env.REACT_APP_KEY_KAKAO_SHARE_API);
       }
-
         window.Kakao.Share.sendDefault({
         //container: '#kakaotalk-sharing-btn', 
         objectType: 'text',

@@ -60,8 +60,8 @@ function NavBar(){
         const changeLocation = () => { // 로그인 여부에 따라 페이지 이동
             if(!userData){
                 navigate("/menu-login"); 
-            }else if(userData && pathname ==='/menu-login'){
-                navigate("/todaysmenu");
+            }else if(pathname ==='/menu-login'){
+                navigate("/");
             }
         }
         const search = new URLSearchParams(window.location.search);
@@ -117,7 +117,7 @@ function NavBar(){
 
     return(  
     <nav id="nav1">
-        <a href={"/todaysmenu"}>Today's Menu</a>
+        <a href={"/"}>Today's Menu</a>
         {/* <ul>{pathname === '/login' ? (<li><span onClick={handleAuth}>구글로그인</span></li>) : <li><img src={userData.photoURL} alt="user"></img><span onClick={handleLogout}>로그아웃</span></li>}</ul> */}
         <ul>
             {!userData ? (<li><a href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${client_id}&redirect_uri=${redirect_uri}`}>로그인</a></li>) 
