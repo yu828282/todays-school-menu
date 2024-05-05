@@ -12,8 +12,6 @@ function NavBar(){
     const navigate = useNavigate();
     const initialUserData = localStorage.getItem('userData') ? JSON.parse(localStorage.getItem('userData')) : null; //로컬스토리지에 저장해 새로고침해도 로그인 상태 유지
     const [userData, setUserData] = useState(initialUserData);
-    console.log(pathname)
-    console.log(userData)
     // useEffect(()=>{
     //     const unsubscribe = onAuthStateChanged(auth, (user) => { // 로그인 여부에 따라 페이지 이동
     //         if(!user){
