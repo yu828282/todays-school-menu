@@ -111,7 +111,7 @@ function NavBar(){
         const result = await response.json();
         localStorage.setItem('userData' ,JSON.stringify(result));
         setUserData(result)
-        window.location.reload();
+        //window.location.reload();
     };
 
     return(  
