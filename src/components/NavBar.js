@@ -59,9 +59,9 @@ function NavBar(){
     useEffect(()=> {            
         const changeLocation = () => { // 로그인 여부에 따라 페이지 이동
             if(!userData){
-                navigate("/menu-login"); 
+                navigate(`${process.env.PUBLIC_URL}/menu-login`); 
             }else if(pathname ==='/menu-login'){
-                navigate("/");
+                navigate(`${process.env.PUBLIC_URL}/`);
             }
         }
         const search = new URLSearchParams(window.location.search);
