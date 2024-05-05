@@ -68,7 +68,7 @@ function NavBar(){
             handlegGetToken(code)// 카카오에서 코드를 받은 후 해당 코드를 카카오에게 포스트로 날리기
         }
         return () => { //navigate는 useEffect 함수 내부에서 사용해야 잘 작동한다
-            changeLocation();
+            setTimeout(changeLocation, 1000);
         }
     }, [userData, pathname]) 
 
@@ -112,10 +112,6 @@ function NavBar(){
         setUserData(result)
         //window.location.reload();
     };
-    const deleteSubscribe = () => {     
-      alert("다음페이지로 이동.");
-      navigate("/menu-login"); 
-    };
 
     return(  
     <nav id="nav1">
@@ -132,8 +128,7 @@ function NavBar(){
                 </div>
             </li> 
             }
-        </ul>
-        <span onClick={()=>deleteSubscribe()}>ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ</span>
+        </ul>\
     </nav>
     )
 };
