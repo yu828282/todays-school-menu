@@ -1,13 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system, BlinkMacSystemFont, "Nanum Gothic", 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+}
+
+.footer-main{
+  min-height: 80px;
+  margin-top: 80px;
+  padding: 50px;
+  background-color: #5f9ea0;
+  color : #fff;
+  line-height: 20px;
+}
+.footer-main div{
+  padding: 3px 0;
+}
+.divider{  
+  border-top: 1px solid #fff;
+  margin: 20px 0px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.main-page{
+  margin: 1%;
+  padding-bottom: 20px;
+}
+#nav1 {  
+  display: flex;
+  justify-content: center;
+  /* justify-content: space-between; */
+  align-items: center;
+  height: 55px;
+  vertical-align: bottom;
+}
+
+#nav1 > a {
+  display: block; /* a태그는 글자성격 = inline */
+  float: left;
+  font-size: 30px;
+  font-family: 'Segoe UI';
+  font-weight: 900;
+  line-height: 55px;
+  padding: 0 20px;
+  text-decoration-line: none;
+  color: #5f9ea0;
+  line-height: 25px;
+}
+#nav1 > ul li { /*nav1 아래 ul요소의 직계 자식인 li에 스타일 적용*/
+  list-style-type : none;    
+}
+#nav1 ul li a {  
+  text-decoration-line: none;
+  font-weight: 900;
+  color: #5f9ea0;
+  padding: 10px;
+}
+.profile {
+  width: 50%;
+  height: 50%;
+  border-radius: 70%;
+}
+.dropdown{
+  position : relative;
+  display : inline-block;
+  padding-top: 10px;
+}
+.dropdown-content{
+  display : none;
+  position : absolute;
+  z-index : 1; /*다른 요소들보다 앞에 배치*/
+}
+
+.dropdown-content a{
+  display : block;
+  width: 80px;
+  padding: 0 10px;
+  text-align: center;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+.dropdown-content:hover{
+  background-color: rgb(226, 226, 226);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.calendar-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1px;
+}
+
+.calendar-top button {
+  background-color: #5f9ea0;
+  color: #fff;
+  border-radius: 10%;
+  border: none;
+  font-family: "paybooc-Light", sans-serif;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 25px;
+  transition: 0.25s;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  margin: 0 5px;
+}
+
+.calendar-top button:hover {
+  transform: translateY(-5px);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.mySub{
+  font-size: 14px;
+  justify-content: end;
+  display: flex;
+  margin: 5px;
+}
+
+.kakao-share{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.kakao-share button{
+  /* margin-left: auto; 부모가 flex라 배치 안됨*/
+  background-color: #fee500;
+  border: 1px solid #fee500;
+  color: #181600;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 3px 5px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 2px;
+  border-radius: 16px;
+}
+.kakao-share button:hover{
+  transition: transform 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+table{  
+  margin: 5px auto;
+}
+thead{
+  background-color: #5f9ea0;
+}
+
+td {
+  vertical-align: top;
+  border: 1px solid black; 
+  border-collapse: collapse;
+  padding: 5px;
+  height: 120px;
+  width:  120px;
+}
+td a{
+    text-decoration-line: none;
+    color: black;
+    line-height : 1.5;
+}
+
+td:hover{  
+  background-color: rgb(226, 226, 226);
+}
+
+.subscribe-btn{
+  background-color: transparent;
+  border: 1px solid #fee500;
+  padding: 3px 5px;
+  text-align: center;
+  margin: 4px 2px;
+  border-radius: 16px;
+}
+.subscribe-btn:hover{
+  transition: transform 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  background-color: #fee500;
+}
+.sun{
+  color: red;
+}
+.sat{
+  color: blue;
+}
+.subInfo{
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.searchLine{
+  /* display: flex;
+  justify-content: center;
+  align-items:center; */
+  display: grid;
+  gap: 0; /* 그리드 간격 설정 */
+  justify-items: center;
+  margin: 10px 0;
+}
+
+.flex-line{
+  display: flex;
+  align-items: center;
+}
+
+select{  
+  width: 70px;
+  border: 1px solid #5f9ea0;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 3px 5px;
+  margin: 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+input{
+  width: 190px;
+  border: 1px solid #5f9ea0;
+  box-sizing: border-box;
+  border-radius: 10px 0 0 10px;
+  padding: 3px 5px;
+  margin: 0 0 0 5px;
+  font-size: 14px;
+  line-height: 16px;
+  min-height: 25px;
+}
+
+form button{
+  border: 1px solid #5f9ea0;
+  background-color: #5f9ea0;
+  color: #fff;
+  box-sizing: border-box;
+  border-radius: 0 10px 10px 0; 
+  padding: 3px 7px;
+  font-size: 14px;
+  line-height: 16px;
+  margin: 5px 0 5px 0;
+  min-height: 25px;
+}
+
+.recommend ul{
+  margin: 0;
+  padding: 0 0 0 5px;
+}
+
+.recommend li {
+  list-style-type : none;    
+}
+
+
+.recommend button {
+  background-color: transparent;
+  border: 1px solid #5f9ea0;
+  min-width: 200px;
+  border-radius: 4px;
+}
+
+.recommend button:hover {
+  background-color: #5f9ea0;
+  color: #fff;
+}
+
+@media (max-width: 600px) {  
+  .main-page{
+    margin: 0;
+    padding: 15px 0;
+  }
+
+  td {
+    vertical-align: top;
+    padding: 1px;
+    height: 40px;
+    width: 20px;
+    max-width: 45px;
+    letter-spacing :0.5px;
+    white-space: nowrap; /* 텍스트가 요소를 넘어갈 때 줄 바꿈을 하지 않습니다. */
+    overflow: hidden; /* 요소 밖으로 넘치는 내용을 숨깁니다. */
+    text-overflow: ellipsis; /* 텍스트가 요소를 넘어갈 때 말줄임표를 추가합니다. */
+  }
+
+  .searchLine{
+    padding: 15px 0;
+  }
+
+}
+
+.sub-page{
+  margin: 15px 25px;
+  padding: 25px;
+}
+
+.detailPart{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10px;
+  padding: 10px;
+  line-height: 20px;
+}
+
+.detailTitle{
+  font-weight: 600;
+}
+
+.detailContent{
+  display: block;  
+}
+
+.backBtn{
+  background-color: transparent;
+  border: 1px solid #5f9ea0;
+  padding: 13px 15px;
+  text-align: center;
+  margin: 4px 2px;
+  border-radius: 16px;
+  float: right;
+
+}
+.backBtn a{
+  text-decoration: none;
+  color: #5f9ea0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.backBtn:hover{
+  transition: transform 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  background-color: #5f9ea0;
+}
+.backBtn:hover a{
+  color: #fff;
+}
+.login-page{
+  margin: 50px 15px;
+  padding-bottom: 350px;
+  font-size: 20px;
+}
+
+.loader{
+  margin: 50px 0;
+  padding: 80px;
+}
+.menuListMenu{
+  padding: 5px 10px;
+}
+
+.menuList{
+  margin : 5px;
 }
