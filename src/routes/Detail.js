@@ -4,7 +4,7 @@ import {formatDate} from "../components/formDate"
 function Detail(){
     //const {id} = useParams();//url 값을 반환하는 함수 (url의 id를 지정해 반환)
     
-    const serverUrl = process.env.PUBLIC_URL;
+    const serverUrl = 'https://todays-school-menu.netlify.app';
     let { state } = useLocation();    
     console.log(state);
     

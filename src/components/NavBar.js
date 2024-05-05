@@ -5,8 +5,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 function NavBar(){
 
-    const serverUrl = process.env.PUBLIC_URL;
-    console.log("serverUrl : "+serverUrl)
+    const serverUrl = 'https://todays-school-menu.netlify.app';
     // const auth = getAuth(app);
     // const provider = new GoogleAuthProvider();  
     const {pathname} = useLocation(); //현재 위치 확인
