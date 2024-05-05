@@ -68,7 +68,7 @@ function NavBar(){
             handlegGetToken(code)// 카카오에서 코드를 받은 후 해당 코드를 카카오에게 포스트로 날리기
         }
         return () => { //navigate는 useEffect 함수 내부에서 사용해야 잘 작동한다
-            setTimeout(changeLocation, 1000);
+            changeLocation();
         }
     }, [userData, pathname]) 
 
@@ -110,7 +110,7 @@ function NavBar(){
         const result = await response.json();
         localStorage.setItem('userData' ,JSON.stringify(result));
         setUserData(result)
-        //window.location.reload();
+        navigate("/");
     };
 
     return(  
@@ -128,7 +128,7 @@ function NavBar(){
                 </div>
             </li> 
             }
-        </ul>\
+        </ul>
     </nav>
     )
 };
