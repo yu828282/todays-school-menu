@@ -56,10 +56,15 @@ function NavBar(){
     
     useEffect(()=> {            
         const changeLocation = () => { // 로그인 여부에 따라 페이지 이동, 동작하지 않는다... (버튼을 이용한 페이지이동은 잘 동작함)
+            console.log("changeLocation 시작")
+            console.log("userData : " + userData)
+            console.log("pathname : " + pathname)
             if(!userData){
                 navigate("/menu-login"); 
+                console.log("유저데이터가 없어 로그인 페이지로 이동합니다.")
             }else if(userData && pathname ==='/menu-login'){
                 navigate("/");
+                console.log("유저데이터가 있어 메인 페이지로 이동합니다.")
             }
         }
         const handleNavigation = async () => {
