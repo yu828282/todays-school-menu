@@ -55,7 +55,7 @@ function NavBar(){
     }
     
     useEffect(()=> {            
-        const changeLocation = () => { // 로그인 여부에 따라 페이지 이동
+        const changeLocation = () => { // 로그인 여부에 따라 페이지 이동, 동작하지 않는다... (버튼을 이용한 페이지이동은 잘 동작함)
             if(!userData){
                 navigate("/menu-login"); 
             }else if(userData && pathname ==='/menu-login'){
@@ -110,7 +110,6 @@ function NavBar(){
         const result = await response.json();
         localStorage.setItem('userData' ,JSON.stringify(result));
         setUserData(result)
-        navigate("/");
     };
 
     return(  
