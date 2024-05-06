@@ -62,14 +62,17 @@ function NavBar(){
                 navigate("/");
             }
         }
-        const search = new URLSearchParams(window.location.search);
-        const code = search.get("code");
-        if (code){
-            handlegGetToken(code)// 카카오에서 코드를 받은 후 해당 코드를 카카오에게 포스트로 날리기
-        }
-        return () => { //navigate는 useEffect 함수 내부에서 사용해야 잘 작동한다
-            changeLocation();
-        }
+        const handleNavigation = async () => {
+            const search = new URLSearchParams(window.location.search);
+            const code = search.get("code");
+            if (code){
+                await handlegGetToken(code); // 비동기 작업 완료를 기다림
+                changeLocation(); // 비동기 작업이 완료된 후에 페이지 이동 처리
+            }
+        };
+    
+        handleNavigation(); // 비동기 작업 시작
+        return () => { } 
     }, [userData, pathname]) 
 
     const getToken = async (code) =>{  
