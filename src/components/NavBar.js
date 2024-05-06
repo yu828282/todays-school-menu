@@ -56,28 +56,23 @@ function NavBar(){
     
     useEffect(()=> {            
         const changeLocation = () => { // 로그인 여부에 따라 페이지 이동, 동작하지 않는다... (버튼을 이용한 페이지이동은 잘 동작함)
-            console.log("changeLocation 시작")
-            console.log("userData : " + userData)
-            console.log("pathname : " + pathname)
             if(!userData){
                 navigate("/menu-login"); 
-                console.log("유저데이터가 없어 로그인 페이지로 이동합니다.")
             }else if(userData && pathname ==='/menu-login'){
                 navigate("/");
-                console.log("유저데이터가 있어 메인 페이지로 이동합니다.")
             }
         }
         const handleNavigation = async () => {
             const search = new URLSearchParams(window.location.search);
             const code = search.get("code");
             if (code){
-                await handlegGetToken(code); // 비동기 작업 완료를 기다림
-                changeLocation(); // 비동기 작업이 완료된 후에 페이지 이동 처리
+                await handlegGetToken(code);
             }
+            changeLocation();
         };
     
-        handleNavigation(); // 비동기 작업 시작
-        return () => { } 
+        handleNavigation();
+        return () => { } // Clean-up 작업
     }, [userData, pathname]) 
 
     const getToken = async (code) =>{  
