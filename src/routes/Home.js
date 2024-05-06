@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import Menu from '../components/Menu';
 import schoolList from '../json/schoolInfo.json'
 import { Link } from 'react-router-dom';
 
@@ -65,6 +64,15 @@ function Home(){
     }
       return "";
   };
+  // 오늘 날짜가 몇 번째 주에 해당하는지 반환합니다.
+  function getCurrentWeekNumber() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const firstDayOfMonth = new Date(year, month, 1);
+    const firstWeekNumber = Math.ceil((firstDayOfMonth.getDay() + 1) / 7);
+    return firstWeekNumber;
+  }
 
   function printDays(){
     const days = []; //전체 날짜
@@ -181,27 +189,6 @@ function Home(){
       setSelectLocation(findSchoolLocation(inputValue));
     }
   };
-
-  //카카오 알림문자 https://devtalk.kakao.com/t/topic/125963/5
-  // const kakaoMessage = (input) => { 
-  //   if (window.Kakao) {
-  //     const kakao = window.Kakao;
-  //     if (!kakao.isInitialized()) {
-  //       kakao.init(process.env.REACT_APP_KEY_KAKAO_SHARE_API);
-  //     }
-
-  //     window.Kakao.Share.sendDefault({
-  //       //container: '#kakaotalk-sharing-btn', 
-  //       objectType: 'text',
-  //       text:
-  //         `🥗 ${input}`,
-  //       link: {
-  //         mobileWebUrl: serverUrl, //'http://localhost:3000/',
-  //         webUrl: serverUrl,
-  //       },
-  //       });
-  //   };
-  //   }
  
    useEffect(() => {  
 
@@ -307,38 +294,18 @@ function Home(){
             </tr>
           </thead>
             <tbody>
-              {printDays().map((days, index) => (
-                <tr key={index}>
-                {days.map((day, index) => (
-                  index === 0 ? <td className='sun' key={index}>{day}</td> 
-                  : index === 6 ? <td className='sat' key={index}>{day}</td> 
-                  : <td className='weekday overflow' key={index}>{day}</td>
-                ))}
+              {printDays().map((days, indexs) => (
+                <tr key={indexs} className={indexs === getCurrentWeekNumber() && selectedYear === new Date().getFullYear() && selectedMonth === (new Date().getMonth() + 1)  ? 'todaysWeek' : ''}>
+                  {days.map((day, index) => (
+                  <td key={index} className={ index === 0 ? 'sun' : index === 6 ? 'sat' : index=== new Date().getDay() ? 'weekday overflow today' : 'weekday overflow'}>
+                    {day}
+                  </td> 
+                  ))}
                 </tr>
               ))}
             </tbody>
         </table>
       </div>
-      {/* <div>              
-        <ul>
-          {Array.isArray(items.mealServiceDietInfo) && items.mealServiceDietInfo[1].row.map((item, index) => (    // 옵셔널 체이닝 사용불가?
-            <Menu 
-                key={index} 
-                id={item.MLSV_YMD} 
-                date={item.MLSV_YMD} 
-                menu={item.DDISH_NM}
-                ingredient={item.NTR_INFO}
-                origin={item.ORPLC_INFO}      
-                people={item.MLSV_FGR}
-                calorie={item.CAL_INFO}                    
-                location={item.ATPT_OFCDC_SC_CODE}
-                schoolName={item.SCHUL_NM}
-                schoolCode={item.SD_SCHUL_CODE}
-            ></Menu>
-            )
-          )}           
-        </ul>
-      </div> */}
         </>
         )}
     </div>

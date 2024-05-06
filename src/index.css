@@ -197,6 +197,10 @@ td:hover{
 .sat{
   color: blue;
 }
+
+.todaysWeek > .today{
+  font-weight: 600;
+}
 .subInfo{
   text-align: center;
   font-weight: 600;
@@ -276,30 +280,6 @@ form button{
   color: #fff;
 }
 
-@media (max-width: 600px) {  
-  .main-page{
-    margin: 0;
-    padding: 15px 0;
-  }
-
-  td {
-    vertical-align: top;
-    padding: 1px;
-    height: 40px;
-    width: 20px;
-    max-width: 45px;
-    letter-spacing :0.5px;
-    white-space: nowrap; /* 텍스트가 요소를 넘어갈 때 줄 바꿈을 하지 않습니다. */
-    overflow: hidden; /* 요소 밖으로 넘치는 내용을 숨깁니다. */
-    text-overflow: ellipsis; /* 텍스트가 요소를 넘어갈 때 말줄임표를 추가합니다. */
-  }
-
-  .searchLine{
-    padding: 15px 0;
-  }
-
-}
-
 .sub-page{
   margin: 15px 25px;
   padding: 25px;
@@ -362,4 +342,33 @@ form button{
 
 .menuList{
   margin : 5px;
+}
+
+@media (max-width: 600px) {  
+  .main-page{
+    margin: 0;
+    padding: 15px 0;
+  }
+
+  td {
+    vertical-align: top;
+    padding: 1px;
+    height: 40px;
+    width: 20px;
+    max-width: 45px;
+    letter-spacing :0.5px;
+    white-space: nowrap; /* 텍스트가 요소를 넘어갈 때 줄 바꿈을 하지 않습니다. */
+    overflow: hidden; /* 요소 밖으로 넘치는 내용을 숨깁니다. */
+    text-overflow: ellipsis; /* 텍스트가 요소를 넘어갈 때 말줄임표를 추가합니다. */
+    font-size: 12px;
+  }
+
+  .searchLine{
+    padding: 15px 0;
+  }
+
+  .sub-page{
+    padding: 25px;
+  }
+
 }
