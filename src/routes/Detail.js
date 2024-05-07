@@ -6,15 +6,13 @@ function Detail(){
     
     const serverUrl = 'https://todays-school-menu.netlify.app';
     let { state } = useLocation();    
-    console.log(state);
     
     let { schoolName } = state.state;
     let { date } = state.state;
     let { menu } = state.state;
 
     const formattedDate = `${date.slice(0, 4)}/${date.slice(4, 6)}/${date.slice(6, 8)}`;
-
-    let kakaoText = formattedDate +' '+ schoolName + '의 식단은 ' + menu.replace(/\([^()]*\)/g, '').replace(/(<br>|<br\/>|<br \/>)/g, '\r\n').split('\r\n');
+    let kakaoText = formattedDate +' '+ schoolName + '의 식단은...' + menu.replace(/\([^()]*\)/g, '').replace(/(<br>|<br\/>|<br \/>)/g, '/ ') + '입니다.🤤';
 
   const kakaoMessage = () => { 
     if (window.Kakao) {
