@@ -11,6 +11,8 @@ function Detail(){
     let { date } = state.state;
     let { menu } = state.state;
 
+    console.log(state)
+
     const formattedDate = `${date.slice(0, 4)}/${date.slice(4, 6)}/${date.slice(6, 8)}`;
     let kakaoText = formattedDate +' '+ schoolName + '의 식단은...' + menu.replace(/\([^()]*\)/g, '').replace(/(<br>|<br\/>|<br \/>)/g, '/ ') + '입니다.🤤';
 
@@ -41,17 +43,17 @@ function Detail(){
                 <div className='detailContent'>&nbsp;{state.state.schoolName} </div>
             </div>
             <div className='detailPart'>
-                <div className='detailTitle'>식단구성 : </div>
+                <div className='detailTitle'>식단표 : </div>
                 <div className='detailContent'>
-                    {state.state.ingredient.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n').split('\r\n')
+                    {state.state.menu.replace(/\([^()]*\)/g, '').replace(/(<br>|<br\/>|<br \/>)/g, '\r\n').split('\r\n')
                     .map(item => (<div key={item}>&nbsp;{item} </div>))
                     }
                 </div>
             </div>
             <div className='detailPart'>
-                <div className='detailTitle'>식단표 : </div>
+                <div className='detailTitle'>영양소 : </div>
                 <div className='detailContent'>
-                    {state.state.menu.replace(/\([^()]*\)/g, '').replace(/(<br>|<br\/>|<br \/>)/g, '\r\n').split('\r\n')
+                    {state.state.ingredient.replace(/(<br>|<br\/>|<br \/>)/g, '\r\n').split('\r\n')
                     .map(item => (<div key={item}>&nbsp;{item} </div>))
                     }
                 </div>
@@ -71,7 +73,7 @@ function Detail(){
                 </div>
             </div>
             <div className='detailPart'>
-             <div className='detailTitle'>대상 : </div>
+             <div className='detailTitle'>대 상 : </div>
                 <div className='detailContent'>
                     &nbsp;{state.state.people} 인분
                 </div>

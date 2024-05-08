@@ -102,7 +102,7 @@ function Home(){
         date: menus.MLSV_YMD,
         menu: menus.DDISH_NM,
         ingredient : menus.NTR_INFO,
-        origin : menus.NTR_INFO,
+        origin : menus.ORPLC_INFO,
         people : menus.MLSV_FGR,
         calorie : menus.CAL_INFO,
         location : menus.ATPT_OFCDC_SC_CODE,
