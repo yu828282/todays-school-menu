@@ -69,8 +69,8 @@ function Home(){
     const today = new Date();
     const year = today.getFullYear();
     const month = today.getMonth();
-    const firstDayOfMonth = new Date(year, month, 1);
-    const firstWeekNumber = Math.ceil((firstDayOfMonth.getDay() + 1) / 7);
+    const firstDayOfMonth = new Date(year, month, 1); 
+    const firstWeekNumber = Math.ceil((firstDayOfMonth.getDay() + today.getDate()) / 7); //첫째 주 시작 요일 + 오늘 날짜
     return firstWeekNumber;
   }
 
