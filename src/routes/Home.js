@@ -71,7 +71,7 @@ function Home(){
     const month = today.getMonth();
     const firstDayOfMonth = new Date(year, month, 1); 
     const firstWeekNumber = Math.ceil((firstDayOfMonth.getDay() + today.getDate()) / 7); //첫째 주 시작 요일 + 오늘 날짜
-    return firstWeekNumber;
+    return firstWeekNumber -1 ;
   }
 
   function printDays(){
